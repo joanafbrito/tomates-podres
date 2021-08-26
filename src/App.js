@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import movieData from './movieData';
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 
@@ -13,15 +13,26 @@ class App extends Component {
     }
   }
 
-  compontentDidMount() {
+  // componentWillMount() {
+  componentDidMount() {
     this.setState({
-      movies: [...this.state.movies, ...movieData]
-      // fetch call with data info
+      movies: [...this.state.movies, ...movieData.movies]
+    //   // fetch call with data info- all movies
+    //   // fetch for a single movie
     })    
   }
 
+
   render() {
-  return ( <h2>Hello</h2>
+    let text = 'NO MOVIES'
+
+    // if (this.state.movies.length > 0){
+    //   console.log(this.state.movies[0].title)
+    //   text = this.state.movies[0].title
+    // }
+    
+    return ( <h2>{text}</h2> 
+
 
 
     // Nav Bar - Search button(input)
