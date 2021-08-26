@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
-import movieData from './movieData';
+// import movieData from './movieData';
 import Movies from './Movies';
+import ChosenOne from './ChosenOne';
 import React, { Component } from 'react';
 import './App.css';
 
@@ -12,16 +13,21 @@ class App extends Component {
       movies: [],
       selectedMovie:'',
       error: ''
+      //if there is a ChosenOne - get all the info on that movie
+      //if not, then have all the information
     }
   }
 
   // componentWillMount() {
   componentDidMount() {
-    this.setState({
-      movies: [...this.state.movies, ...movieData.movies]
-    //   // fetch call with data info- all movies
-    //   // fetch for a single movie
-    })    
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
+    fetch(url)
+    .then(res => res.json())
+    .then(data => this.setState({
+      movies: [...this.state.movies, ...data.movies]}))
+    
+    //  fetch call with data info- all movies
+    //  fetch for a single movie - moved to ChosenOne 
   }
 
   getMovieById = (movieId) => {
@@ -42,10 +48,12 @@ class App extends Component {
       <section>
       {!this.state.movies && <h2>{text}</h2>}
       {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie}/>}
+      {!this.state.selectedMovie &&
       <Movies 
         movieData={this.state.movies}
         getMovieById={this.getMovieById}
         />
+      }
       </section>
 
 

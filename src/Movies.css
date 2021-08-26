@@ -1,1 +1,4 @@
-
+.all-movies {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
