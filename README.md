@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Tomates Podres - Mod3 Paired Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Abstract
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/82066350/130875779-4adc0578-e45d-4cd8-8992-06ab68a98b59.png)
+*The Tomates Podres website shows a list of displayed moveis and allows a user to see information and watch a trailer form the movie selected:* 
 
-In the project directory, you can run:
+- Movies : when I visit the app, all movies should be displayed.
+- Selected Movie: As a user, I can click a movie, and see that movie’s details.When a movie’s details are displayed, none of the other movies will be visible.
+- When a movie’s details are displayed, the user should have a way to return to the main view of all movies.
 
-### `npm start`
+## A Little bit about the Developer
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Hi! My name is Joana and I am a current Front End Engineering student at Turing School of Software Design. I am a career changer! I've  spent the last decade working to manage two small business, and grabbing the opportunity to move to another country. 
+Now, I'm spending my days learning code. As a woman I can contribuit to build a more balanced society, where people can be seen as equals in the software marketing and where I can build apps more inclusive and make a difference using this huge platform of the internet!*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+*About MEG 🧘🏼‍♀️ *
 
-### `npm test`
+## Learning Goals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
 
-### `npm run build`
+*Project Spec: [link](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html "Spec")*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- HTML
+- CSS
+- Lighthouse (Accessibility dev-tool)
+- React/ JavaScript 
+- React Router
+- Cypress
+- NPM
+- Fetch API 
+- ESLint
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup
 
-### `npm run eject`
+Fork this repo (look up in the top right corner) and copy the SSH link.
+Open your terminal, run git clone (replace the [ ] with the copied remote address)
+Change into the directory and type the following to view page: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In the terminal run:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+and then:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+src/open index.html
 
-## Learn More
+or click the link:[Add deployed link here]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Illustrations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Add gif/screenshots here
 
-### Code Splitting
+## 🏆 Wins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Waiting for what it will happen... you never know... maybe ..." and the oscar's Goes to " ....
 
-### Analyzing the Bundle Size
+## Challenges
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Balancing fun/life with project/work/study time 👩🏻‍💻💅🏻💆🏻‍♀️
+- First project in React.
 
-### Making a Progressive Web App
+## Future Designs/Extensions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Add Agent Interaction:** 
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add a user login/logout whith username and password 
+- Have a area of favorite movies
+- Be able to watch the movie in the website
+- The User will be able to add rating to the watched movie 
