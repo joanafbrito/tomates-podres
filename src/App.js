@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import movieData from './movieData';
+import Movies from './Movies';
 import React, { Component } from 'react';
 import './App.css';
 
@@ -31,7 +32,11 @@ class App extends Component {
     //   text = this.state.movies[0].title
     // }
     
-    return ( <h2>{text}</h2> 
+    return ( 
+      <section>
+      {!this.state.movies && <h2>{text}</h2>}
+      <Movies movieData={this.state.movies} />
+      </section>
 
 
 
