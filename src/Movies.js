@@ -3,13 +3,14 @@ import movieData from './movieData';
 import MovieCard from './MovieCard'
 import './Movies.css';
 
-const Movies = ( {movieData} ) => {
+const Movies = ( {movieData, getMovieById} ) => {
     let movieCards = movieData.map(movie => {
         return (
             <MovieCard 
             id={movie.id}
             poster={movie.poster_path}
             title={movie.title}
+            getMovieById={getMovieById}
             />
         )
     })

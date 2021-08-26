@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      selectedMovie:'',
       error: ''
     }
   }
@@ -21,6 +22,11 @@ class App extends Component {
     //   // fetch call with data info- all movies
     //   // fetch for a single movie
     })    
+  }
+
+  getMovieById = (movieId) => {
+    const movieById = this.state.movies.find(movie => movie.id === movieId)
+    this.setState( {selectedMovie: movieById})
   }
 
 
@@ -35,7 +41,11 @@ class App extends Component {
     return ( 
       <section>
       {!this.state.movies && <h2>{text}</h2>}
-      <Movies movieData={this.state.movies} />
+      {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie}/>}
+      <Movies 
+        movieData={this.state.movies}
+        getMovieById={this.getMovieById}
+        />
       </section>
 
 
