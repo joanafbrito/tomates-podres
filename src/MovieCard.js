@@ -1,9 +1,9 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = (props) => {
+const MovieCard = ( {poster, id, getMovieById} ) => {
     return (
-        <img src={props.poster} className="poster" alt="Movie Poster" />
+        <img src={poster} className="poster" alt="Movie Poster" onClick={() => getMovieById(id)}/>
     )
 }
 
