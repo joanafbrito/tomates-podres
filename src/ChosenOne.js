@@ -1,5 +1,6 @@
 // import React, { Component} from 'react';
 import './ChosenOne.css';
+import PropTypes from 'prop-types';
 
 const ChosenOne = (props) => {
 
@@ -8,6 +9,17 @@ return (
     className='single-movie'
     >
     <h1>{props.details.title}</h1>
+    <div className="video-responsive">
+      <iframe
+        width="853"
+        height="480"
+        src={`https://www.youtube.com/embed/${props.trailer[0].key}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Embedded youtube"
+      />
+    </div>
     <h2>{props.details.overview}</h2>
     <img className='movie-pic'src={props.details.backdrop_path} alt='movie poster' />
   </div>

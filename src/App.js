@@ -3,7 +3,7 @@
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import React, { Component } from 'react';
-import { getSingleMovie, getAllMovies } from './apiCalls';
+import { getSingleMovie, getAllMovies, getMovieVideo } from './apiCalls';
 import './App.css';
 
 
@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: null,
+      videos: [],
       error: null
       //if there is a ChosenOne - get all the info on that movie
       //if not, then have all the information
@@ -36,12 +37,19 @@ class App extends Component {
     getSingleMovie(movieId)
     .then(data => this.setState({selectedMovie: data.movie}))
     .catch(err => console.log(err))
+
+    getMovieVideo(movieId)
+    .then(data => this.setState({
+      videos:[...this.state.videos, ...data.videos]}))
+    .catch(err => console.log(err))
+
     return (
       null
     );
     // const movieById = this.state.movies.find(movie => movie.id === movieId)
     // this.setState( {selectedMovie: movieById})
   }
+
 
 
   render() {
@@ -55,7 +63,7 @@ class App extends Component {
     return ( 
       <section>
       {!this.state.movies && <h2>{text}</h2>}
-      {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie}/>}
+      {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
       {!this.state.selectedMovie &&
       <Movies 
         movieData={this.state.movies}
