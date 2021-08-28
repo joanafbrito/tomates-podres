@@ -1,4 +1,9 @@
 .all-movies {
+  display:flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  margin-top: 20px;
+  height: 50vh;
+  width: 100vw;
+  justify-content:space-around;
 }

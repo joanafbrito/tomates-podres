@@ -1,4 +1,12 @@
 .poster {
   height: 300px;
   width: 300px;
+  margin: 10px;
+
+}
+
+.poster:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+  box-shadow: 0px 1px 19px 13px grey;
 }

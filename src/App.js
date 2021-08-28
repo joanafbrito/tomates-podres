@@ -56,7 +56,7 @@ class App extends Component {
     
     return ( 
       <section>
-        <Navbar />
+        <Navbar backToHome={this.state.selectedMovie}/>
         {!this.state.movies && <h2>{text}</h2>}
         {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
         {!this.state.selectedMovie &&
