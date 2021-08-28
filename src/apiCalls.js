@@ -1,6 +1,5 @@
 export const getAllMovies = () => {
-  const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
-    return fetch(url)
+    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(res => res.json())
 }
 

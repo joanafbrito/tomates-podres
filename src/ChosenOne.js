@@ -10,8 +10,6 @@ return (
     <h1>{props.details.title}</h1>
     <h2>{props.details.overview}</h2>
   </div>
-
-
 )
 
 }
