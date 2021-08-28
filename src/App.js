@@ -3,6 +3,7 @@
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import React, { Component } from 'react';
+import { getSingleMovie, getAllMovies } from './apiCalls';
 import './App.css';
 
 
@@ -20,9 +21,10 @@ class App extends Component {
 
   // componentWillMount() {
   componentDidMount() {
-    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
-    fetch(url)
-    .then(res => res.json())
+    getAllMovies()
+    // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
+    // fetch(url)
+    // .then(res => res.json())
     .then(data => this.setState({
       movies: [...this.state.movies, ...data.movies]}))
     
@@ -31,8 +33,14 @@ class App extends Component {
   }
 
   getMovieById = (movieId) => {
-    const movieById = this.state.movies.find(movie => movie.id === movieId)
-    this.setState( {selectedMovie: movieById})
+    getSingleMovie(movieId)
+    .then(data => this.setState({selectedMovie: data.movie}))
+    .catch(err => console.log(err))
+    return (
+      null
+    );
+    // const movieById = this.state.movies.find(movie => movie.id === movieId)
+    // this.setState( {selectedMovie: movieById})
   }
 
 
