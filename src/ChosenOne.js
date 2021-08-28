@@ -1,8 +1,10 @@
-// import React, { Component} from 'react';
+import React from 'react';
 import './ChosenOne.css';
 import PropTypes from 'prop-types';
 
 const ChosenOne = (props) => {
+
+// let src= videoSite(props.trailer[0].site)
 
 return (
   <div 
@@ -11,9 +13,9 @@ return (
     <h1>{props.details.title}</h1>
     <div className="video-responsive">
       <iframe
-        width="853"
+        width="800"
         height="480"
-        src={`https://www.youtube.com/embed/${props.trailer[0].key}`}
+        src={props.trailer.length &&  `https://www.youtube.com/embed/${props.trailer[0].key}`}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
@@ -26,6 +28,17 @@ return (
 )
 
 }
+
+// Pseudo-code for videos from vimeo - not sure if we will have time to do that
+
+// let videoSite = if (props.trailer[0].site === youtube ) {
+//   return   `https://www.youtube.com/embed/${props.trailer[0].key}`
+// } else {
+//   return `http://www.vimeo.com/${props.trailer[0].key}`
+// }
+
+// Paseudo code for us if we need to use the constructor and change the state in this file 
+// }
   // constructor({details}) {
   //   super()
   //   this.details = details

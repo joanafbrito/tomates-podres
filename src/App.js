@@ -1,5 +1,4 @@
 // import logo from './logo.svg';
-// import movieData from './movieData';
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import React, { Component } from 'react';
@@ -20,45 +19,39 @@ class App extends Component {
     }
   }
 
-  // componentWillMount() {
   componentDidMount() {
     getAllMovies()
-    // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
-    // fetch(url)
-    // .then(res => res.json())
     .then(data => this.setState({
       movies: [...this.state.movies, ...data.movies]}))
-    
-    //  fetch call with data info- all movies
-    //  fetch for a single movie - moved to ChosenOne 
   }
 
   getMovieById = (movieId) => {
+
     getSingleMovie(movieId)
     .then(data => this.setState({selectedMovie: data.movie}))
     .catch(err => console.log(err))
 
     getMovieVideo(movieId)
-    .then(data => this.setState({
-      videos:[...this.state.videos, ...data.videos]}))
+    .then(data => this.filterVideoByType(data.videos))
     .catch(err => console.log(err))
 
     return (
       null
     );
-    // const movieById = this.state.movies.find(movie => movie.id === movieId)
-    // this.setState( {selectedMovie: movieById})
+
   }
 
+  filterVideoByType = (dataVideos) => {
+    let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
+    this.setState({
+      videos:[...this.state.videos, ... trailerVideo]
+    })
+   
+  }
 
 
   render() {
     let text = 'NO MOVIES'
-
-    // if (this.state.movies.length > 0){
-    //   console.log(this.state.movies[0].title)
-    //   text = this.state.movies[0].title
-    // }
     
     return ( 
       <section>
