@@ -6,9 +6,10 @@ const ChosenOne = (props) => {
 return (
   <div 
     className='single-movie'
-    style={{backgroundImage: `url(${props.details.backdrop_path})`}}>
+    >
     <h1>{props.details.title}</h1>
     <h2>{props.details.overview}</h2>
+    <img className='movie-pic'src={props.details.backdrop_path} alt='movie poster' />
   </div>
 )
 

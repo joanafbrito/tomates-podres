@@ -12,8 +12,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie:'',
-      error: ''
+      selectedMovie: null,
+      error: null
       //if there is a ChosenOne - get all the info on that movie
       //if not, then have all the information
     }
