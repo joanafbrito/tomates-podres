@@ -11,8 +11,11 @@
 
 ## A Little bit about the Developer
 
-*Hi! My name is Joana and I am a current Front End Engineering student at Turing School of Software Design. I am a career changer! I've  spent the last decade working to manage two small business, and grabbing the opportunity to move to another country. 
-Now, I'm spending my days learning code. As a woman I can contribuit to build a more balanced society, where people can be seen as equals in the software marketing and where I can build apps more inclusive and make a difference using this huge platform of the internet!*
+*Hi! My name is Joana and I am a current Front End Engineering student at Turing School of Software Design. I am a career changer! I've  spent the last decade working to manage two small business, and grabbing the opportunity to move to another country.* 
+*Now, I'm spending my days learning code. As a woman I can contribuit to build a more balanced society, where people can be seen as equals in the software marketing and where I can build apps more inclusive and make a difference using this huge platform of the internet!*
+
+
+*Hello! I’m Meg, currently a student of the frontend developer program at the Turing School of Software Development and Design. Prior to making the decision to change careers, I worked with a company that manages the data for 911. This positive contribution to society is very important to me and what I would like to continue to do in the future as a developer with the incredible power granted by the internet to create positive changes . Outside of learning to code, I enjoy spending time with my family and friends and continue my effort to read as many books as I possibly can.*
 
 *About MEG 🧘🏼‍♀️ *
 
@@ -69,8 +72,6 @@ Add gif/screenshots here
 - First project in React.
 
 ## Future Designs/Extensions
-
-**Add Agent Interaction:** 
 
 - Add a user login/logout whith username and password 
 - Have a area of favorite movies
