@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
+import Navbar from './Navbar';
 import React, { Component } from 'react';
 import { getSingleMovie, getAllMovies, getMovieVideo } from './apiCalls';
 import './App.css';
@@ -55,12 +56,13 @@ class App extends Component {
     
     return ( 
       <section>
-      {!this.state.movies && <h2>{text}</h2>}
-      {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
-      {!this.state.selectedMovie &&
-      <Movies 
-        movieData={this.state.movies}
-        getMovieById={this.getMovieById}
+        <Navbar />
+        {!this.state.movies && <h2>{text}</h2>}
+        {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
+        {!this.state.selectedMovie &&
+        <Movies 
+          movieData={this.state.movies}
+          getMovieById={this.getMovieById}
         />
       }
       </section>
