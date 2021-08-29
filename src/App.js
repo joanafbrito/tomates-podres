@@ -55,11 +55,10 @@ class App extends Component {
   } 
 
   filterMovies = (searchInput) => {
-    console.log(searchInput)
     let lowerCaseInput = searchInput.toLowerCase();
     const matchingMovieTitles = this.state.movies.filter(movie => {
     let lowerCaseMovie = movie.title.toLowerCase();
-    if (lowerCaseMovie.includes(lowerCaseInput)) {
+    if (lowerCaseMovie.includes(lowerCaseInput) && lowerCaseInput !== '') {
       return movie
     }
     })
