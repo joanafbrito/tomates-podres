@@ -51,12 +51,18 @@ class App extends Component {
   }
 
   returnHome = () => {
-    this.setState( {selectedMovie: null, videos: []} )
+    this.setState( {selectedMovie: null, videos: [], filteredMovies: []} )
   } 
 
   filterMovies = (searchInput) => {
-    const matchingMovieTitles = this.state.movies.filter(movie => 
-      movie.title.includes(searchInput));
+    console.log(searchInput)
+    let lowerCaseInput = searchInput.toLowerCase();
+    const matchingMovieTitles = this.state.movies.filter(movie => {
+    let lowerCaseMovie = movie.title.toLowerCase();
+    if (lowerCaseMovie.includes(lowerCaseInput)) {
+      return movie
+    }
+    })
     this.setState({
       filteredMovies: [...matchingMovieTitles]
     })
@@ -73,9 +79,10 @@ class App extends Component {
           returnHome={this.returnHome}
           filterMovies={this.filterMovies}/>
         {!this.state.movies && <h2>{text}</h2>}
-        {this.state.filteredMovies.length !== 0 && 
+        {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
         <Movies 
           movieData={this.state.filteredMovies}
+          getMovieById={this.getMovieById}
         />}
         {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
         {!this.state.selectedMovie &&

@@ -11,8 +11,8 @@ class SearchBar extends Component {
   }
 
 handleClick = (event) => {
-  this.setState({movieTitle: event.target.value})
-  this.props.filterMovies(this.state.movieTitle)
+  // this.setState({movieTitle: event.target.value})
+  this.props.filterMovies(event.target.value)
 }
 
   render() {
