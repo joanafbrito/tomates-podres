@@ -1,4 +1,5 @@
 .navbar {
+  /* position:fixed; */
   background-color: #ffff;
   display: flex;
   justify-content: space-between;
@@ -6,4 +7,54 @@
   align-items: center;
   padding: 10px;
   color:#575757;
+  /* width: 100vw;
+  margin-bottom:40px; */
+}
+
+.logo-name {
+  display: flex;
+  padding:2px;
+  color:#4d0405cf;
+}
+.logo-name h1 {
+  padding: 5px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.logo {
+  width: 60px;
+}
+
+.search-field {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #9a9797fa;
+  border-radius: 16px;
+  opacity: .5;
+  font-size: 14px;
+  box-sizing:border-box;
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+} 
+
+.search-bar {
+  border: none;
+  border-radius: 16px;
+  width: 280px;
+  padding-left: 14px;
+  padding-right: 36px;
+  height: 32px!important;
+  line-height: normal!important;
+}
+
+.search-bar:focus {
+  outline: none !important;
+}
+.search-btn {
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  margin: 5px;
 }
