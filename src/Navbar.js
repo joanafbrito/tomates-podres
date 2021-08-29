@@ -7,7 +7,7 @@ const Navbar = (props) => {
   return (
     <div className='navbar'>
       <h1>Tomates Podres 'logo'</h1>
-      {props.backToHome && <button>Return to Home</button>}
+      {props.backToHome && <button onClick={() => props.returnHome()}>Return to Home</button>}
       {!props.backToHome && <p>Searchbar logo</p>}
     </div>
   )

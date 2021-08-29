@@ -46,9 +46,12 @@ class App extends Component {
     let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
     this.setState({
       videos:[...this.state.videos, ... trailerVideo]
-    })
-   
+    })   
   }
+
+  returnHome = () => {
+    this.setState( {selectedMovie: null, videos: []} )
+  } 
 
 
   render() {
@@ -56,7 +59,9 @@ class App extends Component {
     
     return ( 
       <section>
-        <Navbar backToHome={this.state.selectedMovie}/>
+        <Navbar 
+          backToHome={this.state.selectedMovie}
+          returnHome={this.returnHome}/>
         {!this.state.movies && <h2>{text}</h2>}
         {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
         {!this.state.selectedMovie &&

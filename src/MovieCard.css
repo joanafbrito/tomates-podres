@@ -2,11 +2,11 @@
   height: 300px;
   width: 300px;
   margin: 10px;
-
+  border-radius: 20px;
 }
 
 .poster:hover {
-  transform: scale(1.25);
+  transform: scale(1.05);
   cursor: pointer;
   box-shadow: 0px 1px 19px 13px grey;
 }
