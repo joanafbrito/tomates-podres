@@ -1,5 +1,4 @@
 import React from 'react';
-// import movieData from './movieData';
 import MovieCard from './MovieCard'
 import './Movies.css';
 
