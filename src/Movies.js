@@ -1,3 +1,4 @@
+import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import MovieCard from './MovieCard'
 import './Movies.css';
@@ -16,6 +17,7 @@ const Movies = ( {movieData, getMovieById} ) => {
     })
 
     return (
+
         <div  className='all-movies'>
             {movieCards}
         </div>
