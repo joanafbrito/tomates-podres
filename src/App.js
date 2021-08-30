@@ -84,7 +84,7 @@ class App extends Component {
           getMovieById={this.getMovieById}
         />}
         {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
-        {!this.state.selectedMovie &&
+        {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
         <Movies 
           movieData={this.state.movies}
           getMovieById={this.getMovieById}
