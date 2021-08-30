@@ -5,12 +5,13 @@ import './RatingStar.css';
 const StartRating = (props) => {
     const[rating, setRating ] = useState(null);
     const[hover, setHover ] = useState(null);
+   
 
     return (
         <div>
-            {[...Array(9)].map((star, i) => {
+            {[...Array(10)].map((star, i) => {
                 const ratingValue = i + 1;
-                
+                console.log(ratingValue)
                 return (
                     <label>
                         <input className="starIn"

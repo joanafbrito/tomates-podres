@@ -26,12 +26,12 @@ return (
     </section>
     <section 
       className="chosenOne-details" 
-      background-image={`url(${props.details.backdrop_path})`} 
+      style={{backgroundImage:`url(${props.details.backdrop_path})`}}
     >
       <h2>{props.details.overview} </h2>
       <section className="RatingStar">
       {/* this will be the value of the star */}
-        <RatingStar movieRating={props.details.average_rating}/>
+        <RatingStar key={Date.now()} movieRating={props.details.average_rating}/>
         <h2> {props.details.average_rating} </h2>
       </section>
     </section>
