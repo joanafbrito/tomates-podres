@@ -1,8 +1,13 @@
-.single-movie {
+.chosen-one {
   background-color: #f9f9f9;
 }
 
 .movie-pic {
   height: 600px;
   width: auto;
+}
+
+.chosenOne-details {
+  background-repeat: no-repeat;
+  background-size: 100%;
 }

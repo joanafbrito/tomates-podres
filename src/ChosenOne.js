@@ -1,17 +1,19 @@
 import React from 'react';
 import './ChosenOne.css';
+import RatingStar from './RatingStar';
 import PropTypes from 'prop-types';
 
 const ChosenOne = (props) => {
 
 // let src= videoSite(props.trailer[0].site)
+console.log(props.details.poster_path)
 
 return (
   <div 
-    className='single-movie'
+    className='chosen-one'
     >
     <h1>{props.details.title}</h1>
-    <div className="video-responsive">
+    <section className="video">
       <iframe
         width="800"
         height="480"
@@ -21,9 +23,19 @@ return (
         allowFullScreen
         title="Embedded youtube"
       />
-    </div>
-    <h2>{props.details.overview}</h2>
-    <img className='movie-pic'src={props.details.backdrop_path} alt='movie poster' />
+    </section>
+    <section 
+      className="chosenOne-details" 
+      style={{backgroundImage:`url(${props.details.backdrop_path})`}}
+    >
+      <h2>{props.details.overview} </h2>
+      <section className="RatingStar">
+      {/* this will be the value of the star */}
+        <RatingStar key={Date.now()} movieRating={props.details.average_rating}/>
+        <h2> {props.details.average_rating} </h2>
+      </section>
+    </section>
+    {/* <img className='movie-pic'src={props.details.backdrop_path} alt='movie poster' /> */}
   </div>
 )
 

@@ -1,0 +1,19 @@
+.RatingStar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 5vh;
+    margin-left: 10px;
+    /* width: 10px; */
+}
+h2 {
+    margin-left: 10px;
+}
+input[type="radio"] {
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
