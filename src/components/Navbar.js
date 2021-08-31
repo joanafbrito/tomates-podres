@@ -1,9 +1,8 @@
 import React from 'react';
 import './Navbar.css';
 import SearchBar from './SearchBar';
-import logo from './images/tomato1.svg';
-// import magGlass from './images/magGlass2.png';
-//import search image from 'search-image'
+import logo from '../images/tomato1.svg';
+
 
 const Navbar = (props) => {
   return (
