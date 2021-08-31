@@ -14,6 +14,7 @@ class App extends Component {
       movies: [],
       selectedMovie: null,
       videos: [],
+      filteredMovies: [],
       error: null
       //if there is a ChosenOne - get all the info on that movie
       //if not, then have all the information
@@ -45,13 +46,26 @@ class App extends Component {
   filterVideoByType = (dataVideos) => {
     let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
     this.setState({
-      videos:[...this.state.videos, ... trailerVideo]
+      videos:[...this.state.videos, ...trailerVideo]
     })   
   }
 
   returnHome = () => {
-    this.setState( {selectedMovie: null, videos: []} )
+    this.setState( {selectedMovie: null, videos: [], filteredMovies: []} )
   } 
+
+  filterMovies = (searchInput) => {
+    let lowerCaseInput = searchInput.toLowerCase();
+    const matchingMovieTitles = this.state.movies.filter(movie => {
+    let lowerCaseMovie = movie.title.toLowerCase();
+    if (lowerCaseMovie.includes(lowerCaseInput) && lowerCaseInput !== '') {
+      return movie
+    }
+    })
+    this.setState({
+      filteredMovies: [...matchingMovieTitles]
+    })
+  }
 
 
   render() {
@@ -61,10 +75,16 @@ class App extends Component {
       <section>
         <Navbar 
           backToHome={this.state.selectedMovie}
-          returnHome={this.returnHome}/>
+          returnHome={this.returnHome}
+          filterMovies={this.filterMovies}/>
         {!this.state.movies && <h2>{text}</h2>}
+        {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
+        <Movies 
+          movieData={this.state.filteredMovies}
+          getMovieById={this.getMovieById}
+        />}
         {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
-        {!this.state.selectedMovie &&
+        {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
         <Movies 
           movieData={this.state.movies}
           getMovieById={this.getMovieById}
