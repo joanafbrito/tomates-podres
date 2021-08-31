@@ -26,6 +26,10 @@
   width: 60px;
 }
 
+button {
+  z-index: 2;
+}
+
 .search-field {
   display: flex;
   justify-content: space-between;

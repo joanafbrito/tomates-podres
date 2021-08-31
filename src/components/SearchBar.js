@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import magGlass from './images/magGlass2.png';
+import magGlass from '../images/magGlass2.png';
 import './Navbar.css';
 
 class SearchBar extends Component {

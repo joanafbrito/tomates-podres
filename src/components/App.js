@@ -1,9 +1,8 @@
-// import logo from './logo.svg';
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
-import { getSingleMovie, getAllMovies, getMovieVideo } from './apiCalls';
+import { getSingleMovie, getAllMovies, getMovieVideo } from '../apiCalls';
 import './App.css';
 
 
@@ -15,9 +14,7 @@ class App extends Component {
       selectedMovie: null,
       videos: [],
       filteredMovies: [],
-      error: null
-      //if there is a ChosenOne - get all the info on that movie
-      //if not, then have all the information
+      error: null   
     }
   }
 
@@ -91,29 +88,6 @@ class App extends Component {
         />
       }
       </section>
-
-
-
-    // Nav Bar - Search button(input)
-    // Movies Components- all movies
-    // MovieCard Image
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
     );  
   } 
 }
