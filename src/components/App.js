@@ -12,8 +12,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      // selectedMovie: null,
-      // videos: [],
       filteredMovies: [],
       searchBar: true,
       error: null   
@@ -50,7 +48,7 @@ class App extends Component {
   }
 
   updateSearchBar = (status) => {
-    this.setState( {searchBar: status} )
+    this.setState( {searchBar: status, filteredMovies: []} )
   } 
 
   filterMovies = (searchInput) => {
@@ -79,13 +77,13 @@ class App extends Component {
         // chosenMovie={this.state.selectedMovie}
         // returnHome={this.returnHome}
         filterMovies={this.filterMovies}/>
-      {!this.state.movies && <h2>{text}</h2>}
+      {this.state.movies.length === 0 && <h2>{text}</h2>}
       <Route exact path='/' render={() => (
         <section>
-              {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
+              {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById} />}
-              {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
+              {(this.state.filteredMovies.length === 0) &&
               <Movies
                 movieData={this.state.movies}
                 getMovieById={this.getMovieById}
