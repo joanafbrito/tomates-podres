@@ -34,41 +34,40 @@ filterVideoByType = (dataVideos) => {
 
 render() {
 return (
- 
   <div className='chosen-one'>
     {!this.state.selectedMovie && this.state.videos.length === 0  && <h2>Loading...</h2>}
     {this.state.selectedMovie && 
     <section>
-      <h1>{this.state.selectedMovie.title}</h1>
+      <h2>Trailer:  <strong>{this.state.selectedMovie.title}</strong></h2>
       <section className="video">
-      <iframe
-        // width="800"
-        // height="480"
-        width="90%"
-        height="90%"
-        src={this.state.videos.length &&  `https://www.youtube.com/embed/${this.state.videos[0].key}`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Embedded youtube"
-      />
-    </section>
-    <section 
+        <iframe
+          width="800"
+          height="480"
+          src={this.state.videos.length &&  `https://www.youtube.com/embed/${this.state.videos[0].key}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        />
+      </section>
+      <h3>See Details</h3>
+      <section 
       className="chosenOne-details" 
       style={{backgroundImage:`url(${this.state.selectedMovie.backdrop_path})`}}
-    >
-      <h2>{this.state.selectedMovie.overview} </h2>
-      <section className="RatingStar">
-      {/* this will be the value of the star */}
-        <RatingStar key={Date.now()} movieRating={this.state.selectedMovie.average_rating}/>
-        <h2> {this.state.selectedMovie.average_rating} </h2>
-      </section>
-      </section>
+      > 
+        <div className="details">
+          <h2>{this.state.selectedMovie.overview} </h2>
+          <section className="RatingStar">
+            {/* this will be the value of the star */}
+            <RatingStar key={Date.now()} movieRating={this.state.selectedMovie.average_rating}/>
+            <h2> {this.state.selectedMovie.average_rating} </h2>
+          </section>
+        </div>
+      </section> 
     </section>}
-  </div>
-);
+  </div>)}
 }
-}
+
 
 
 export default ChosenOne;
