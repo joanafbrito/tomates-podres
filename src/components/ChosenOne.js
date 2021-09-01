@@ -29,6 +29,7 @@ filterVideoByType = (dataVideos) => {
   this.setState({
     videos:[...this.state.videos, ...trailerVideo]
   })  
+  this.props.updateSearchBar(false)
 }
 
 render() {

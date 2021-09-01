@@ -12,9 +12,10 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      videos: [],
+      // selectedMovie: null,
+      // videos: [],
       filteredMovies: [],
+      searchBar: true,
       error: null   
     }
   }
@@ -48,8 +49,8 @@ class App extends Component {
     })   
   }
 
-  returnHome = () => {
-    this.setState( {selectedMovie: null, videos: [], filteredMovies: []} )
+  updateSearchBar = (status) => {
+    this.setState( {searchBar: status} )
   } 
 
   filterMovies = (searchInput) => {
@@ -72,13 +73,15 @@ class App extends Component {
     
     return ( 
       <section>
-        <Navbar 
-          chosenMovie={this.state.selectedMovie}
-          returnHome={this.returnHome}
-          filterMovies={this.filterMovies}/>
-        {!this.state.movies && <h2>{text}</h2>}
-        <Route exact path='/' render={() => (
-            <section>
+      <Navbar 
+        isSearchBar={this.state.searchBar}
+        updateSearchBar={this.updateSearchBar}
+        // chosenMovie={this.state.selectedMovie}
+        // returnHome={this.returnHome}
+        filterMovies={this.filterMovies}/>
+      {!this.state.movies && <h2>{text}</h2>}
+      <Route exact path='/' render={() => (
+        <section>
               {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById} />}
@@ -92,7 +95,7 @@ class App extends Component {
         />
         <Route exact path='/:id' render={({match}) => {
           const movieId = parseInt(match.params.id)
-          return <ChosenOne movieId={movieId}/>
+          return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
         }
         }
         />  
