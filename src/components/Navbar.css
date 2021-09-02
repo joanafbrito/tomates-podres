@@ -1,5 +1,4 @@
 .navbar {
-  /* position:fixed; */
   background-color: #ffff;
   display: flex;
   justify-content: space-between;
@@ -7,8 +6,6 @@
   align-items: center;
   padding: 10px;
   color:#575757;
-  /* width: 100vw;
-  margin-bottom:40px; */
 }
 
 .logo-name {
@@ -16,6 +13,7 @@
   padding:2px;
   color:#4d0405cf;
 }
+
 .logo-name h1 {
   padding: 5px;
   font-weight: 200;
@@ -26,8 +24,15 @@
   width: 60px;
 }
 
-button {
-  z-index: 2;
+.timeGreetings {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.timeGreetings h5 {
+  font-style: italic;
+  font-size: 10px;
 }
 
 .search-field {
@@ -46,7 +51,7 @@ button {
 .search-bar {
   border: none;
   border-radius: 16px;
-  width: 280px;
+  width: 280%;
   padding-left: 14px;
   padding-right: 36px;
   height: 32px!important;

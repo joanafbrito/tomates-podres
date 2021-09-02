@@ -3,6 +3,7 @@ import ChosenOne from './ChosenOne';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import { getSingleMovie, getAllMovies, getMovieVideo } from '../apiCalls';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 
@@ -11,9 +12,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      videos: [],
       filteredMovies: [],
+      searchBar: true,
       error: null   
     }
   }
@@ -28,15 +28,15 @@ class App extends Component {
 
     getSingleMovie(movieId)
     .then(data => this.setState({selectedMovie: data.movie}))
-    .catch(err => console.log(err))
+    .catch(err => this.setState({error: err}))
 
     getMovieVideo(movieId)
     .then(data => this.filterVideoByType(data.videos))
-    .catch(err => console.log(err))
+    .catch(err => this.setState({error: err}))
 
-    return (
-      null
-    );
+    // return (
+    //   null
+    // );
 
   }
 
@@ -47,8 +47,8 @@ class App extends Component {
     })   
   }
 
-  returnHome = () => {
-    this.setState( {selectedMovie: null, videos: [], filteredMovies: []} )
+  updateSearchBar = (status) => {
+    this.setState( {searchBar: status, filteredMovies: []} )
   } 
 
   filterMovies = (searchInput) => {
@@ -64,31 +64,57 @@ class App extends Component {
     })
   }
 
+  
 
   render() {
     let text = 'NO MOVIES'
     
     return ( 
       <section>
-        <Navbar 
-          backToHome={this.state.selectedMovie}
-          returnHome={this.returnHome}
-          filterMovies={this.filterMovies}/>
-        {!this.state.movies && <h2>{text}</h2>}
-        {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
-        <Movies 
-          movieData={this.state.filteredMovies}
-          getMovieById={this.getMovieById}
-        />}
-        {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
-        {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
-        <Movies 
-          movieData={this.state.movies}
-          getMovieById={this.getMovieById}
+      <Navbar 
+        isSearchBar={this.state.searchBar}
+        updateSearchBar={this.updateSearchBar}
+        // chosenMovie={this.state.selectedMovie}
+        // returnHome={this.returnHome}
+        filterMovies={this.filterMovies}/>
+      {this.state.movies.length === 0 && <h2>{text}</h2>}
+      <Route exact path='/' render={() => (
+        <section>
+              {this.state.filteredMovies.length !== 0 &&
+              <Movies movieData={this.state.filteredMovies}
+                getMovieById={this.getMovieById} />}
+              {(this.state.filteredMovies.length === 0) &&
+              <Movies
+                movieData={this.state.movies}
+                getMovieById={this.getMovieById}
+              />}
+            </section>
+        )}
         />
-      }
+        <Route exact path='/:id' render={({match}) => {
+          const movieId = parseInt(match.params.id)
+          return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
+        }
+        }
+        />  
       </section>
     );  
   } 
 }
+
 export default App;
+//Router looks in the array of all the movies and then bring the obj that has the same id
+
+// {!this.state.movies && <h2>{text}</h2>}
+// {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
+// <Movies 
+//   movieData={this.state.filteredMovies}
+//   getMovieById={this.getMovieById}
+// />}
+// {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
+// {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
+// <Movies 
+//   movieData={this.state.movies}
+//   getMovieById={this.getMovieById}
+// />
+// }
