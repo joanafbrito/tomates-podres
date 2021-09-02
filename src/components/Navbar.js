@@ -28,8 +28,6 @@ const Navbar = ({isSearchBar, filterMovies, updateSearchBar}) => {
         {isSearchBar && 
         <SearchBar filterMovies={filterMovies}/>}
         {!isSearchBar && <Link to='/' className='back' onClick={() => updateSearchBar(true)}>Go Back</Link>}
-        {/* {!isSearchBar && <Link to='/'><button onClick={() => updateSearchBar(true)}>Return to Home</button></Link>} */}
-
       </div>      
     </div>
   )
