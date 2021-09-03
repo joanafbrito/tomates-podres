@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import ErrorInformation from './ErrorInformation'
 import React, { Component } from 'react';
 import { getAllMovies } from '../apiCalls';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 
@@ -15,26 +15,24 @@ class App extends Component {
       movies: [],
       filteredMovies: [],
       searchBar: true,
-      error: null   
+      error: null,
+      errorStausCode: null   
     }
   }
 
   componentDidMount() {
     getAllMovies()
-    .then(res => this.verifyResponse(res))
+    .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
     .then(data => { this.setState({
       movies: [...this.state.movies, ...data.movies]})})    
-    .catch(err => this.setState({error: 'I want the response...'}))
+    .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
     }
 
-
-verifyResponse = (response) => {
-  if (!response.ok) {
-  throw new Error(response.status)
-} else {
-  return response.json();
-}
-}
+  displayErrorInfo = (response) => {
+    console.log(response)
+    let errorCode = response.status;
+    this.setState({errorStatusCode: errorCode})
+  }
 
   filterVideoByType = (dataVideos) => {
     let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
@@ -73,7 +71,7 @@ verifyResponse = (response) => {
       <Switch>
         <Route exact path='/' render={() => (
           <section>
-                {this.state.error && <h2>{this.state.error}</h2>}
+              {this.state.error && <h1>{this.state.error}</h1>}
                 {this.state.filteredMovies.length !== 0 &&
                 <Movies movieData={this.state.filteredMovies}
                   getMovieById={this.getMovieById} />}
@@ -90,7 +88,9 @@ verifyResponse = (response) => {
             return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
           }}          
           /> 
-          <Route component={ErrorInformation}
+          <Route render={() => {
+
+          }}
           />
       </Switch> 
 

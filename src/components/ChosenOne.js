@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ChosenOne.css';
 import RatingStar from './RatingStar';
+import ErrorInformation from './ErrorInformation';
 import PropTypes from 'prop-types';
 import { getSingleMovie, getMovieVideo } from '../apiCalls';
 
@@ -11,21 +12,28 @@ class ChosenOne extends Component {
     this.state={
       selectedMovie: null,
       videos: [],
-      error: null
+      error: null,
+      errorStatusCode: null
     }
   }
   
 componentDidMount = () => {
   this.props.updateSearchBar(false)
   getSingleMovie(this.props.movieId)
-  .then(res => this.verifyResponse(res)) 
+  .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
   .then(data => this.setState({selectedMovie: data.movie}))
-  .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
+  .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
 
   getMovieVideo(this.props.movieId)
-  .then(res => this.verifyResponse(res)) 
+  .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
   .then(data => this.filterVideoByType(data.videos))
-  .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
+  .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
+}
+
+displayErrorInfo = (response) => {
+  let errorCode = response.status;
+  console.log(errorCode)
+  this.setState({errorStatusCode: errorCode})
 }
 
 filterVideoByType = (dataVideos) => {
@@ -33,21 +41,12 @@ filterVideoByType = (dataVideos) => {
   this.setState({
     videos:[...this.state.videos, ...trailerVideo]
   })  
-  // this.props.updateSearchBar(false)
-}
-
-verifyResponse = (response) => {
-  if (!response.ok) {
-  throw new Error(response.status)
-} else {
-  return response.json();
-}
-}
+ }
 
 render() {
 return (
   <div className='chosen-one'>
-    {this.state.error && <h2>{this.state.error}</h2>}
+    {this.state.error && <h1>{this.state.error}</h1>}
     {(!this.state.selectedMovie && this.state.videos.length === 0 && !this.state.error)  && <h2>Loading...</h2>}
     {(this.state.selectedMovie && !this.state.error) &&
     <section>
