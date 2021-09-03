@@ -20,10 +20,20 @@ class App extends Component {
 
   componentDidMount() {
     getAllMovies()
+    .then(res => this.verifyResponse(res))
     .then(data => { this.setState({
       movies: [...this.state.movies, ...data.movies]})})    
     .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
     }
+
+
+verifyResponse = (response) => {
+  if (!response.ok) {
+  throw new Error(response.status)
+} else {
+  return response.json();
+}
+}
 
   filterVideoByType = (dataVideos) => {
     let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")

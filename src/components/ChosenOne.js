@@ -18,10 +18,12 @@ class ChosenOne extends Component {
 componentDidMount = () => {
   this.props.updateSearchBar(false)
   getSingleMovie(this.props.movieId)
+  .then(res => this.verifyResponse(res)) 
   .then(data => this.setState({selectedMovie: data.movie}))
   .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
 
   getMovieVideo(this.props.movieId)
+  .then(res => this.verifyResponse(res)) 
   .then(data => this.filterVideoByType(data.videos))
   .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
 }
@@ -32,6 +34,14 @@ filterVideoByType = (dataVideos) => {
     videos:[...this.state.videos, ...trailerVideo]
   })  
   // this.props.updateSearchBar(false)
+}
+
+verifyResponse = (response) => {
+  if (!response.ok) {
+  throw new Error(response.status)
+} else {
+  return response.json();
+}
 }
 
 render() {
