@@ -1,9 +1,10 @@
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import Navbar from './Navbar';
+import ErrorInformation from './ErrorInformation'
 import React, { Component } from 'react';
 import { getAllMovies } from '../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 
@@ -23,7 +24,7 @@ class App extends Component {
     .then(res => this.verifyResponse(res))
     .then(data => { this.setState({
       movies: [...this.state.movies, ...data.movies]})})    
-    .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
+    .catch(err => this.setState({error: 'I want the response...'}))
     }
 
 
@@ -69,26 +70,30 @@ verifyResponse = (response) => {
         updateSearchBar={this.updateSearchBar}
         filterMovies={this.filterMovies}/>
       {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
-      <Route exact path='/' render={() => (
-        <section>
-              {this.state.error && <h2>{this.state.error}</h2>}
-              {this.state.filteredMovies.length !== 0 &&
-              <Movies movieData={this.state.filteredMovies}
-                getMovieById={this.getMovieById} />}
-              {(this.state.filteredMovies.length === 0) &&
-              <Movies
-                movieData={this.state.movies}
-                getMovieById={this.getMovieById}
-              />}
-            </section>
-        )}
-        />
-        <Route exact path='/:id' render={({match}) => {
-          const movieId = parseInt(match.params.id)
-          return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
-        }
-        }
-        />  
+      <Switch>
+        <Route exact path='/' render={() => (
+          <section>
+                {this.state.error && <h2>{this.state.error}</h2>}
+                {this.state.filteredMovies.length !== 0 &&
+                <Movies movieData={this.state.filteredMovies}
+                  getMovieById={this.getMovieById} />}
+                {(this.state.filteredMovies.length === 0) &&
+                <Movies
+                  movieData={this.state.movies}
+                  getMovieById={this.getMovieById}
+                />}
+          </section>
+          )}
+          />
+          <Route exact path='/:id' render={({match}) => {
+            const movieId = parseInt(match.params.id)
+            return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
+          }}          
+          /> 
+          <Route component={ErrorInformation}
+          />
+      </Switch> 
+
       </section>
     );  
   } 

@@ -1,5 +1,5 @@
 export const getAllMovies = () => {
-  return fetch('https://rancid-tomatillos.herokuapp.com/api/v/movies')
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
 }
 
 export const getSingleMovie = (id) => {
