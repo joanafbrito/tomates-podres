@@ -16,6 +16,7 @@ class ChosenOne extends Component {
   }
   
 componentDidMount = () => {
+  this.props.updateSearchBar(false)
   getSingleMovie(this.props.movieId)
   .then(data => this.setState({selectedMovie: data.movie}))
   .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
@@ -30,7 +31,7 @@ filterVideoByType = (dataVideos) => {
   this.setState({
     videos:[...this.state.videos, ...trailerVideo]
   })  
-  this.props.updateSearchBar(false)
+  // this.props.updateSearchBar(false)
 }
 
 render() {
@@ -38,7 +39,7 @@ return (
   <div className='chosen-one'>
     {this.state.error && <h2>{this.state.error}</h2>}
     {(!this.state.selectedMovie && this.state.videos.length === 0 && !this.state.error)  && <h2>Loading...</h2>}
-    {this.state.selectedMovie && 
+    {(this.state.selectedMovie && !this.state.error) &&
     <section>
       <h2>Trailer:  <strong>{this.state.selectedMovie.title}</strong></h2>
       <section className="video">

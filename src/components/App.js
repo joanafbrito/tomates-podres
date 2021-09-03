@@ -47,9 +47,7 @@ class App extends Component {
     this.setState({
       filteredMovies: [...matchingMovieTitles]
     })
-  }
-
-  
+  }  
 
   render() {
     let text = 'Loading Movies....'

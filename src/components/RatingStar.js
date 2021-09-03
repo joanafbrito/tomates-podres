@@ -11,7 +11,6 @@ const RatingStar = (props) => {
         <div>
             {[...Array(10)].map((star, i) => {
                 const ratingValue = i + 1;
-                console.log(ratingValue)
                 return (
                     <label>
                         <input className="starIn"
