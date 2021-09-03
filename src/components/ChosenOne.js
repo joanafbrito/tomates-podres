@@ -10,18 +10,19 @@ class ChosenOne extends Component {
     super(props)
     this.state={
       selectedMovie: null,
-      videos: []
+      videos: [],
+      error: null
     }
   }
   
 componentDidMount = () => {
   getSingleMovie(this.props.movieId)
   .then(data => this.setState({selectedMovie: data.movie}))
-  .catch(err => this.setState({error: err}))
+  .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
 
   getMovieVideo(this.props.movieId)
   .then(data => this.filterVideoByType(data.videos))
-  .catch(err => this.setState({error: err}))
+  .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
 }
 
 filterVideoByType = (dataVideos) => {
@@ -35,7 +36,8 @@ filterVideoByType = (dataVideos) => {
 render() {
 return (
   <div className='chosen-one'>
-    {!this.state.selectedMovie && this.state.videos.length === 0  && <h2>Loading...</h2>}
+    {this.state.error && <h2>{this.state.error}</h2>}
+    {(!this.state.selectedMovie && this.state.videos.length === 0 && !this.state.error)  && <h2>Loading...</h2>}
     {this.state.selectedMovie && 
     <section>
       <h2>Trailer:  <strong>{this.state.selectedMovie.title}</strong></h2>

@@ -2,7 +2,7 @@ import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
-import { getSingleMovie, getAllMovies, getMovieVideo } from '../apiCalls';
+import { getAllMovies } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import './App.css';
 
@@ -20,25 +20,10 @@ class App extends Component {
 
   componentDidMount() {
     getAllMovies()
-    .then(data => this.setState({
-      movies: [...this.state.movies, ...data.movies]}))
-  }
-
-  getMovieById = (movieId) => {
-
-    getSingleMovie(movieId)
-    .then(data => this.setState({selectedMovie: data.movie}))
-    .catch(err => this.setState({error: err}))
-
-    getMovieVideo(movieId)
-    .then(data => this.filterVideoByType(data.videos))
-    .catch(err => this.setState({error: err}))
-
-    // return (
-    //   null
-    // );
-
-  }
+    .then(data => { this.setState({
+      movies: [...this.state.movies, ...data.movies]})})    
+    .catch(err => this.setState({error: '🥴 Something went wrong. Please try again.'}))
+    }
 
   filterVideoByType = (dataVideos) => {
     let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
@@ -67,19 +52,18 @@ class App extends Component {
   
 
   render() {
-    let text = 'NO MOVIES'
+    let text = 'Loading Movies....'
     
     return ( 
       <section>
       <Navbar 
         isSearchBar={this.state.searchBar}
         updateSearchBar={this.updateSearchBar}
-        // chosenMovie={this.state.selectedMovie}
-        // returnHome={this.returnHome}
         filterMovies={this.filterMovies}/>
-      {this.state.movies.length === 0 && <h2>{text}</h2>}
+      {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
       <Route exact path='/' render={() => (
         <section>
+              {this.state.error && <h2>{this.state.error}</h2>}
               {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById} />}
