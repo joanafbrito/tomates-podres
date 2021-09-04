@@ -12,7 +12,7 @@
 .logo-name {
   display: flex;
   padding:2px;
-  color:#4d0405cf;
+  color:#575757;
 }
 
 .logo-name h1 {
@@ -37,8 +37,12 @@
 }
 
 a.back {
-  text-shadow: 0 0 10px #719ECE;
   color:#575757;
+}
+
+a.back:hover {
+  text-shadow: -2px 2px 8px #719ece;
+  color:#459cf1;
 }
 
 .search-field {
