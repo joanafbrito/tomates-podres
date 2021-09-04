@@ -91,9 +91,8 @@ class App extends Component {
           {/* <Route render={() => {
 
           }} */}
-          />
+          {/* /> */}
       </Switch> 
-
           <footer><h6>@Tomates Podres</h6></footer>
       </section>
     );  
