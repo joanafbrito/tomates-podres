@@ -1,8 +1,8 @@
 import React from 'react';
-import './Navbar.css';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 import logo from '../images/tomato1.svg';
+import './Navbar.css';
 
 
 const Navbar = ({isSearchBar, filterMovies, updateSearchBar}) => {
@@ -23,11 +23,11 @@ const Navbar = ({isSearchBar, filterMovies, updateSearchBar}) => {
         <img className='logo'src={logo} alt='Logo-Tomato' />
         <h1>Tomates Podres</h1>
       </div>
-      <div className='timeGreetings'>
+      <div className='time-greetings'>
         <h5>Good {timeOfDay}!</h5>
         {isSearchBar && 
         <SearchBar filterMovies={filterMovies}/>}
-        {!isSearchBar && <Link to='/'><button onClick={() => updateSearchBar(true)}>Return to Home</button></Link>}
+        {!isSearchBar && <Link to='/' className='back' onClick={() => updateSearchBar(true)}>Go Back</Link>}
       </div>      
     </div>
   )

@@ -100,6 +100,8 @@ class App extends Component {
 }
 
 export default App;
+
+
 //Router looks in the array of all the movies and then bring the obj that has the same id
 
 // {!this.state.movies && <h2>{text}</h2>}

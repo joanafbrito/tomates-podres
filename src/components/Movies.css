@@ -3,6 +3,8 @@
   overflow-x: scroll;
   overflow-y: hidden;
   padding: 50px 10px 0px 10px;
-  height: 50vh;
-  width: 100vw;
+  height: 150vh;
+  /* width: 100vw; */
+  margin-top: auto;
+  margin-bottom: auto;
 }
