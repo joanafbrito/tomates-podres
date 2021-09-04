@@ -30,4 +30,36 @@ Cypress.Commands.add('pageLoad', () => {
     cy.visit('http://localhost:3000/');
 })
 
+Cypress.Commands.add('chosenOneDetails', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739', {
+        movie: {
+        average_rating: 7,
+        backdrop_path: "https://image.tmdb.org/t/p/original//t22fWbzdnThPseipsdpwgdPOPCR.jpg",
+        budget: 0,
+        genres: ["Comedy", "Action"],
+        id: 726739,
+        overview: "It's been ten years since the creation of the Great Truce, an elaborate joint-species surveillance system designed and monitored by cats and dogs to keep the peace when conflicts arise. But when a tech-savvy villain hacks into wireless networks to use frequencies only heard by cats and dogs, he manipulates them into conflict and the worldwide battle between cats and dogs is BACK ON. Now, a team of inexperienced and untested agents will have to use their old-school animal instincts to restore order and peace between cats and dogs everywhere.",
+        poster_path: "https://image.tmdb.org/t/p/original//4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
+        release_date: "2020-10-02",
+        revenue: 0,
+        runtime: 84,
+        tagline: "",
+        title: "Cats & Dogs 3: Paws Unite"
+        }
+    });
+
+    cy.visit('http://localhost:3000/726739');
+})
+
+Cypress.Commands.add('chosenOneTrailer', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739/videos', {
+        videos: [
+            {id: 332, movie_id: 726739, key: "ct5mQYE3Xk4", site: "YouTube", type: "Trailer"}
+        ]
+    });
+    // cy.visit('http://localhost:3000/726739');
+})
+
+
+
 
