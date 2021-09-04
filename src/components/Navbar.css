@@ -6,6 +6,7 @@
   align-items: center;
   padding: 10px;
   color:#575757;
+  text-align: center;
 }
 
 .logo-name {
@@ -27,12 +28,17 @@
 .timeGreetings {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
 .timeGreetings h5 {
   font-style: italic;
   font-size: 10px;
+  text-align: center;
+}
+
+a.back {
+  text-shadow: 0 0 10px #719ECE;
+  color:#575757;
 }
 
 .search-field {
@@ -61,6 +67,7 @@
 .search-bar:focus {
   outline: none !important;
 }
+
 .search-btn {
   width: 20px;
   height: 20px;
