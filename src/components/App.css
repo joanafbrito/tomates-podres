@@ -2,6 +2,25 @@
   display: flex;
 }
 
+
+.home-page {
+  height: 100vh;
+  display: flex;  
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffff;
+  box-shadow: inset 0px -20px 0 0 #fff, 0 1px 5px rgb(0 0 0 / 10%);
+  align-items: center;
+  padding: 10px;
+  color: #575757;
+  text-align: end;
+}
+
 /* .App {
   text-align: center;
 }
