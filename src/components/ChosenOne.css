@@ -3,10 +3,11 @@
 }
 
 .chosen-one h2, h3 {
-  font-weight: 200;
+  font-weight: 500;
   font-style: italic;
   text-align: left;
   font-size: 20px;
+  margin-left: 20px;
 }
 
 iframe {
@@ -43,6 +44,7 @@ iframe {
 }
 
 .details {
+  /* for ipad take away the height */
   height: 700px;
   color:rgb(243, 249, 243);
   font-weight: 800;
@@ -55,5 +57,6 @@ iframe {
   padding-top: 80px;
   margin-top: 40px;
   margin-left: 40px;
-  width: 500px;
+  /* to iphone take the width away */
+  width: 50%;
 }

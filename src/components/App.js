@@ -62,7 +62,7 @@ class App extends Component {
     let text = 'Loading Movies....'
     
     return ( 
-      <section>
+      <section className='home-page'>
       <Navbar 
         isSearchBar={this.state.searchBar}
         updateSearchBar={this.updateSearchBar}
@@ -88,12 +88,12 @@ class App extends Component {
             return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
           }}          
           /> 
-          <Route render={() => {
+          {/* <Route render={() => {
 
-          }}
-          />
+          }} */}
+          {/* /> */}
       </Switch> 
-
+          <footer><h6>@Tomates Podres</h6></footer>
       </section>
     );  
   } 

@@ -11,9 +11,9 @@ handleClick = (event) => {
   render() {
    return(
     <form className='search-field'>
-    <input type="search" className="search-bar" placeholder='Search Movie Title' onChange={event => this.handleClick(event)}/>
-    <img className='search-btn'src={magGlass} alt='Search Magnifying Glass'/>
-  </form>
+      <input type="search" className="search-bar" placeholder='Search Movie Title' onChange={event => this.handleClick(event)}/>
+      <img className='search-btn'src={magGlass} alt='Search Magnifying Glass'/>
+    </form>
      ) 
   }
 }
