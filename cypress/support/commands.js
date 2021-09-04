@@ -1,5 +1,7 @@
 Cypress.Commands.add('pageLoad', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+    const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
+
+    cy.intercept(`${ baseURL }`, {
         movies:[
             {
                 "id": 337401,
@@ -26,12 +28,9 @@ Cypress.Commands.add('pageLoad', () => {
                 "release_date": "2020-10-02"
             }
         ]
-    })
-    cy.visit('http://localhost:3000/');
-})
-
-Cypress.Commands.add('chosenOneDetails', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739', {
+    });
+    
+    cy.intercept(`${ baseURL }/726739`, {
         movie: {
         average_rating: 7,
         backdrop_path: "https://image.tmdb.org/t/p/original//t22fWbzdnThPseipsdpwgdPOPCR.jpg",
@@ -47,17 +46,15 @@ Cypress.Commands.add('chosenOneDetails', () => {
         title: "Cats & Dogs 3: Paws Unite"
         }
     });
-
-    cy.visit('http://localhost:3000/726739');
-})
-
-Cypress.Commands.add('chosenOneTrailer', () => {
+    
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739/videos', {
         videos: [
             {id: 332, movie_id: 726739, key: "ct5mQYE3Xk4", site: "YouTube", type: "Trailer"}
         ]
     });
-    // cy.visit('http://localhost:3000/726739');
+
+
+    cy.visit('http://localhost:3000/');
 })
 
 
