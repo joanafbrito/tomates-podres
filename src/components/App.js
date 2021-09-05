@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import ErrorInformation from './ErrorInformation'
 import React, { Component } from 'react';
 import { getAllMovies } from '../apiCalls';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import './App.css';
 
 
@@ -75,6 +75,7 @@ class App extends Component {
                 movieData={this.state.movies}
                 getMovieById={this.getMovieById}
               />}
+            <footer><h6>@Tomates Podres</h6></footer>
           </section>
           )}
           />
@@ -89,6 +90,7 @@ class App extends Component {
               <ChosenOne 
                 movieId={movieId}
               />
+              <footer><h6>@Tomates Podres</h6></footer>
             </section>
             )
            
@@ -99,7 +101,6 @@ class App extends Component {
           }} */}
           {/* /> */}
       </Switch> 
-          <footer><h6>@Tomates Podres</h6></footer>
       </section>
     );  
   } 

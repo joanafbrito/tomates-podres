@@ -1,4 +1,4 @@
-import { checkPropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import MovieCard from './MovieCard'
 import './Movies.css';
@@ -25,5 +25,10 @@ const Movies = ( {movieData, getMovieById} ) => {
     );
 }
 
-
 export default Movies;
+
+Movies.propTypes = {
+    movieData: PropTypes.array,
+    getMovieById: PropTypes.func
+}
+
