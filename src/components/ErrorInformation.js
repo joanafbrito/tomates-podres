@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ErrorInformation.css';
 
 const ErrorInformation = ({ errorCode }) => {
@@ -39,3 +40,7 @@ const ErrorInformation = ({ errorCode }) => {
 }
 
 export default ErrorInformation;
+
+ErrorInformation.propTypes = {
+  errorCode: PropTypes.number
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 import logo from '../images/tomato1.svg';
@@ -34,3 +35,9 @@ const Navbar = ({isSearchBar, filterMovies}) => {
 }
 
 export default Navbar;
+
+
+Navbar.propTypes = {
+  isSearchBar: PropTypes.bool,
+  filterMovies: PropTypes.func
+}

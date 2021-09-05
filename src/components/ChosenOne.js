@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './ChosenOne.css';
 import RatingStar from './RatingStar';
 import ErrorInformation from './ErrorInformation';
-import PropTypes from 'prop-types';
 import { getSingleMovie, getMovieVideo } from '../apiCalls';
 
 
