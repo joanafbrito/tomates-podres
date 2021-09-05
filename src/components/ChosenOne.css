@@ -45,18 +45,39 @@ iframe {
 
 .details {
   /* for ipad take away the height */
+  height: 100%;
+  /* color:rgb(243, 249, 243);
+  font-weight: 800;
+  font-style: oblique; */
+  background-color: black;
+  opacity: 70%;
+}
+.details .info {
+  /* text-align: center; */
   height: 700px;
   color:rgb(243, 249, 243);
   font-weight: 800;
   font-style: oblique;
-  background-color: black;
-  opacity: 70%;
-}
-
-.details h2 {
   padding-top: 80px;
   margin-top: 40px;
   margin-left: 40px;
   /* to iphone take the width away */
   width: 50%;
+}
+
+.details h2 {
+  font-size:xx-large;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.info-container {
+  display: flex;
+}
+.info-from-data {
+  margin-left: 20px;
+}
+
+.rating-star {
+margin-top: 200px;
 }

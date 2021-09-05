@@ -66,12 +66,29 @@ return (
       style={{backgroundImage:`url(${this.state.selectedMovie.backdrop_path})`}}
       > 
         <div className="details">
-          <h2>{this.state.selectedMovie.overview} </h2>
-          <section className="RatingStar">
-            {/* this will be the value of the star */}
-            <RatingStar key={Date.now()} movieRating={this.state.selectedMovie.average_rating}/>
-            <h2> {this.state.selectedMovie.average_rating} </h2>
-          </section>
+          <div className="info">
+            <h2><strong>{this.state.selectedMovie.title}</strong> "{this.state.selectedMovie.tagline}"</h2>
+            <p>{this.state.selectedMovie.overview} </p>
+            <div className="info-container">
+              <section className='what-info'>
+                <p>Runtime</p>
+                <p>Budget:</p>
+                <p>Genres:</p>
+                <h5>Realeased on: </h5>
+                <h5>Revenue:</h5>
+              </section>
+              <section className='info-from-data'>
+                <p>{this.state.selectedMovie.runtime}</p>
+                <p>{this.state.selectedMovie.budget}</p>
+                <p>{this.state.selectedMovie.genres}</p>
+                <h5> {this.state.selectedMovie.release_date}</h5>
+                <h5>{this.state.selectedMovie.revenue} </h5>
+              </section>
+            </div>
+            <section className="rating-star">
+              <RatingStar key={Date.now()} movieRating={this.state.selectedMovie.average_rating.toFixed(2)}/>
+            </section>
+          </div>
         </div>
       </section> 
     </section>}
