@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import ErrorInformation from './ErrorInformation'
 import React, { Component } from 'react';
 import { getAllMovies } from '../apiCalls';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import './App.css';
 
 
@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       movies: [],
       filteredMovies: [],
-      searchBar: true,
       error: null,
       errorStausCode: null   
     }
@@ -41,10 +40,6 @@ class App extends Component {
     })   
   }
 
-  updateSearchBar = (status) => {
-    this.setState( {searchBar: status, filteredMovies: []} )
-  } 
-
   filterMovies = (searchInput) => {
     let lowerCaseInput = searchInput.toLowerCase();
     const matchingMovieTitles = this.state.movies.filter(movie => {
@@ -62,30 +57,43 @@ class App extends Component {
     let text = 'Loading Movies....'
     
     return ( 
-      <section className='home-page'>
-      <Navbar 
-        isSearchBar={this.state.searchBar}
-        updateSearchBar={this.updateSearchBar}
-        filterMovies={this.filterMovies}/>
-      {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
+      <section>      
       <Switch>
         <Route exact path='/' render={() => (
-          <section>
-              {this.state.error && <h1>{this.state.error}</h1>}
-                {this.state.filteredMovies.length !== 0 &&
-                <Movies movieData={this.state.filteredMovies}
-                  getMovieById={this.getMovieById} />}
-                {(this.state.filteredMovies.length === 0) &&
-                <Movies
-                  movieData={this.state.movies}
-                  getMovieById={this.getMovieById}
-                />}
+          <section className='home-page'>
+            <Navbar 
+              isSearchBar={true}
+              filterMovies={this.filterMovies}/>
+              {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
+            {this.state.error && <h1>{this.state.error}</h1>}
+            {this.state.filteredMovies.length !== 0 &&
+              <Movies movieData={this.state.filteredMovies}
+                getMovieById={this.getMovieById} 
+              />}
+            {(this.state.filteredMovies.length === 0) &&
+              <Movies
+                movieData={this.state.movies}
+                getMovieById={this.getMovieById}
+              />}
+            <footer><h6>@Tomates Podres</h6></footer>
           </section>
           )}
           />
           <Route exact path='/:id' render={({match}) => {
             const movieId = parseInt(match.params.id)
-            return <ChosenOne movieId={movieId} updateSearchBar={this.updateSearchBar}/>
+            return (
+           <section>            
+              <Navbar 
+                isSearchBar={false}          
+                filterMovies={this.filterMovies}
+              />
+              <ChosenOne 
+                movieId={movieId}
+              />
+              <footer><h6>@Tomates Podres</h6></footer>
+            </section>
+            )
+           
           }}          
           /> 
           {/* <Route render={() => {
@@ -93,7 +101,6 @@ class App extends Component {
           }} */}
           {/* /> */}
       </Switch> 
-          <footer><h6>@Tomates Podres</h6></footer>
       </section>
     );  
   } 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './ChosenOne.css';
 import RatingStar from './RatingStar';
 import ErrorInformation from './ErrorInformation';
-import PropTypes from 'prop-types';
 import { getSingleMovie, getMovieVideo } from '../apiCalls';
 
 
@@ -18,7 +17,6 @@ class ChosenOne extends Component {
   }
   
 componentDidMount = () => {
-  this.props.updateSearchBar(false)
   getSingleMovie(this.props.movieId)
   .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
   .then(data => this.setState({selectedMovie: data.movie}))
