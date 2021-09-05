@@ -5,7 +5,7 @@ import logo from '../images/tomato1.svg';
 import './Navbar.css';
 
 
-const Navbar = ({isSearchBar, filterMovies, updateSearchBar}) => {
+const Navbar = ({isSearchBar, filterMovies}) => {
   const date = new Date()
   const hours = date.getHours()
   let timeOfDay;
@@ -24,10 +24,10 @@ const Navbar = ({isSearchBar, filterMovies, updateSearchBar}) => {
         <h1>Tomates Podres</h1>
       </div>
       <div className='time-greetings'>
-        <h5>Good {timeOfDay}!</h5>
+        <h5>Good {timeOfDay}, Movie Connoisseur!</h5>
         {isSearchBar && 
         <SearchBar filterMovies={filterMovies}/>}
-        {!isSearchBar && <Link to='/' className='back' onClick={() => updateSearchBar(true)}>Go Back</Link>}
+        {!isSearchBar && <Link to='/' className='back'>Go Back</Link>}
       </div>      
     </div>
   )

@@ -18,7 +18,6 @@ class ChosenOne extends Component {
   }
   
 componentDidMount = () => {
-  this.props.updateSearchBar(false)
   getSingleMovie(this.props.movieId)
   .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
   .then(data => this.setState({selectedMovie: data.movie}))
