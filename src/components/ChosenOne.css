@@ -51,7 +51,6 @@ iframe {
 }
 
 .details h2 {
-  /* font-size:xx-large; */
   font-weight: bold;
   margin-bottom: 50px;
 }
@@ -69,11 +68,9 @@ iframe {
   padding: 1px;
 }
 
-/* ************** iphone size  ****************/
-@media only screen and (max-width: 600px) {
+/* ************** iphone x and Ipad-Pro and  size  ****************/
 
-}
-/* ********** computer bigger sizes  ************ */
+/* ********** computer sizes  ************ */
 @media only screen and (min-width: 1260px) {
 
   .details {
@@ -82,9 +79,7 @@ iframe {
     opacity: 70%;
   }
 
-
-  .details .info {
-    
+  .details .info { 
     height: 700px;
     width: 50%;
     color:rgb(243, 249, 243);
@@ -93,8 +88,6 @@ iframe {
     padding-top: 80px;
     margin-top: 40px;
     margin-left: 40px;
-    /* to iphone take the width away */
-   
   }
 
   .details h2 {

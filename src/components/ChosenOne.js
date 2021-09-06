@@ -4,7 +4,6 @@ import RatingStar from './RatingStar';
 import ErrorInformation from './ErrorInformation';
 import { getSingleMovie, getMovieVideo } from '../apiCalls';
 
-
 class ChosenOne extends Component {
   constructor(props) {
     super(props)
