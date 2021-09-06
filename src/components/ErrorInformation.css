@@ -3,12 +3,10 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: fit-content;
-    padding-left: 50vw;
 }
 
 .error-msg img {
-    margin-left: 30%;
+    margin-left: 46%;
     width: fit-content;
 }
 
