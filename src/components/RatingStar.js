@@ -6,9 +6,9 @@ const RatingStar = (props) => {
     const[rating, setRating ] = useState(null);
     const[hover, setHover ] = useState(null);
    
-
     return (
         <div>
+            <h3>Rate this movie: {rating || 0} </h3>
             {[...Array(10)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
@@ -29,10 +29,7 @@ const RatingStar = (props) => {
                     </label>
                 );
             })}
-            <p>Movie rating: {props.movieRating}</p>
-            <p>Your rate for this movie: {rating}</p>
-
-
+            <h5>Avarage rating: <strong>{props.movieRating}</strong></h5>
         </div>
     );
 }

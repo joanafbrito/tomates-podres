@@ -17,11 +17,10 @@ const Movies = ( {movieData, getMovieById} ) => {
     })
 
     return (
-
+            // container for the movies
         <div  className='all-movies'>
             {movieCards}
         </div>
-        // container for the movies
     );
 }
 

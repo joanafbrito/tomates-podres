@@ -18,6 +18,7 @@ const Navbar = ({isSearchBar, filterMovies}) => {
   } else {
     timeOfDay = 'Night'
   }
+  
   return (
     <div className='navbar'>
       <div className='logo-name'>
@@ -35,7 +36,6 @@ const Navbar = ({isSearchBar, filterMovies}) => {
 }
 
 export default Navbar;
-
 
 Navbar.propTypes = {
   isSearchBar: PropTypes.bool,

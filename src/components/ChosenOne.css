@@ -23,14 +23,6 @@ iframe {
   padding-bottom: 56.25%;
   position: relative;
   height: 0;
-  /* content: ' ';
-  display: block;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0;
-  padding-top: 800px; */
 }
 
 .chosenOne-details {
@@ -44,19 +36,67 @@ iframe {
 }
 
 .details {
-  /* for ipad take away the height */
-  height: 700px;
-  color:rgb(243, 249, 243);
-  font-weight: 800;
-  font-style: oblique;
   background-color: black;
   opacity: 70%;
 }
 
-.details h2 {
-  padding-top: 80px;
-  margin-top: 40px;
+.details .info {
+  color:rgb(243, 249, 243);
+  font-weight: 800;
+  font-style: oblique;
+  padding-top: 20px;
+  margin-top: 20px;
   margin-left: 40px;
-  /* to iphone take the width away */
-  width: 50%;
+  margin-right: 10px;
+}
+
+.details h2 {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.info-container {
+  display: flex;
+}
+
+.info-from-data {
+  margin-left: 20px;
+}
+
+.rating-star {
+  margin-top: 1px;
+  padding: 1px;
+}
+
+/* ********** computer sizes  ************ */
+@media only screen and (min-width: 1260px) {
+
+  .details {
+    height: 100%;
+    background-color: black;
+    opacity: 70%;
+  }
+
+  .details .info { 
+    height: 700px;
+    width: 50%;
+    color:rgb(243, 249, 243);
+    font-weight: 800;
+    font-style: oblique;
+    padding-top: 80px;
+    margin-top: 40px;
+    margin-left: 40px;
+  }
+
+  .details h2 {
+    font-size:xx-large;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  .rating-star {
+    margin-top: 10%;
+    padding-bottom: 10px;
+  }
+
 }

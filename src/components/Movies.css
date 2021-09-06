@@ -3,12 +3,40 @@
   overflow-x: scroll;
   overflow-y: hidden;
   padding: 50px 10px 0px 10px;
-  /* height: 70vh; */
   height: 80vh;
   margin-top: auto;
   margin-bottom: auto;
-
 }
+
+/* ********** for iPad  ****************** */
+@media only screen and (min-width: 600px) {
+  .all-movies {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 50px 10px 0px 10px;
+    height: 80vh;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+/* ******* for computer *********** */
+@media only screen and (min-width: 1300px) {
+  .all-movies {
+    display:flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 50px 10px 0px 10px;
+    height: 80vh;
+    margin-top: auto;
+    margin-bottom: auto;  
+  }
+}
+
+
+
 
 
 
