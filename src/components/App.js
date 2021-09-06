@@ -92,14 +92,9 @@ class App extends Component {
               />
               <footer><h6>@Tomates Podres</h6></footer>
             </section>
-            )
-           
+            );          
           }}          
           /> 
-          {/* <Route render={() => {
-
-          }} */}
-          {/* /> */}
       </Switch> 
       </section>
     );  

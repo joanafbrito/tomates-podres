@@ -1,0 +1,28 @@
+.error-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    padding-left: 50vw;
+}
+
+.error-msg img {
+    margin-left: 30%;
+    width: fit-content;
+}
+
+.error-msg h1 {
+    font-size: 30px;
+    color: #3f51b5;
+    text-align: center;
+}
+
+.error-msg h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.error-msg p {
+    font-size: 10px;
+}

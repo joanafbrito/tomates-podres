@@ -66,7 +66,8 @@ return (
       > 
         <div className="details">
           <div className="info">
-            <h2><strong>{this.state.selectedMovie.title}</strong> "{this.state.selectedMovie.tagline}"</h2>
+            <h2><strong>{this.state.selectedMovie.title}</strong></h2>
+            <h3> "{this.state.selectedMovie.tagline}"</h3>
             <p>{this.state.selectedMovie.overview} </p>
             <div className="info-container">
               <section className='what-info'>
