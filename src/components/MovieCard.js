@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = ({ poster, id, title }) => {
     return (
-       <Link to={`/${id}`}>
+       <Link to={`/tomates-podres/${id}`}>
         <img src={poster} className="poster" alt={`Movie Poster for ${title}`}/>
        </Link>
     )
