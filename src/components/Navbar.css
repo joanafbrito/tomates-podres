@@ -30,7 +30,7 @@
   flex-direction: column;
   text-align: center;
   font-style: italic;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 a.back {
@@ -87,7 +87,7 @@ a.back:hover {
 
   .time-greetings {
     font-style: italic;
-    font-size: 25px;
+    font-size: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -103,4 +103,8 @@ a.back:hover {
     line-height: normal!important;
   }
 
+  a.back {
+    color:#575757;
+    font-size: 20px;
+  }
 }
