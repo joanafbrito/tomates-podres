@@ -47,7 +47,7 @@ Cypress.Commands.add('pageLoad', () => {
         }
     });
     
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739/videos', {
+    cy.intercept(`${ baseURL }/726739/videos`, {
         videos: [
             {id: 332, movie_id: 726739, key: "ct5mQYE3Xk4", site: "YouTube", type: "Trailer"}
         ]
