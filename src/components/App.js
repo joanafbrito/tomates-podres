@@ -1,12 +1,11 @@
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Movies from './Movies';
 import ChosenOne from './ChosenOne';
 import Navbar from './Navbar';
-import ErrorInformation from './ErrorInformation'
-import React, { Component } from 'react';
+import ErrorInformation from './ErrorInformation';
 import { getAllMovies } from '../apiCalls';
-import { Route, Switch} from 'react-router-dom';
 import './App.css';
-
 
 class App extends Component {
   constructor() {
@@ -15,59 +14,61 @@ class App extends Component {
       movies: [],
       filteredMovies: [],
       error: null,
-      errorStausCode: null   
-    }
+      errorStausCode: null
+    };
   }
 
   componentDidMount() {
     getAllMovies()
-    .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
-    .then(data => { this.setState({
-      movies: [...this.state.movies, ...data.movies]})})    
-    .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
+      .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
+      .then(data => {
+        this.setState({ movies: [...this.state.movies, ...data.movies] });
+      })
+      .catch(err =>
+        this.setState({ error: <ErrorInformation errorCode={this.state.errorStatusCode}/> }));
   }
 
   displayErrorInfo = (response) => {
-    let errorCode = response.status;
-    this.setState({errorStatusCode: errorCode})
+    const errorCode = response.status;
+    this.setState({ errorStatusCode: errorCode });
   }
 
   filterVideoByType = (dataVideos) => {
-    let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
+    const trailerVideo = dataVideos.filter(video => video.type === 'Trailer');
     this.setState({
-      videos:[...this.state.videos, ...trailerVideo]
-    })   
+      videos: [...this.state.videos, ...trailerVideo]
+    });
   }
 
   filterMovies = (searchInput) => {
-    let lowerCaseInput = searchInput.toLowerCase();
+    const lowerCaseInput = searchInput.toLowerCase();
     const matchingMovieTitles = this.state.movies.filter(movie => {
-    let lowerCaseMovie = movie.title.toLowerCase();
-    if (lowerCaseMovie.includes(lowerCaseInput) && lowerCaseInput !== '') {
-      return movie
-    }
-    })
+      const lowerCaseMovie = movie.title.toLowerCase();
+      if (lowerCaseMovie.includes(lowerCaseInput) && lowerCaseInput !== '') {
+        return movie;
+      }
+    });
     this.setState({
       filteredMovies: [...matchingMovieTitles]
-    })
-  }  
+    });
+  }
 
   render() {
-    let text = 'Loading Movies....'
-    
-    return ( 
-      <section>      
+    const text = 'Loading Movies....';
+
+    return (
+      <section>
       <Switch>
         <Route exact path='/' render={() => (
           <section className='home-page'>
-            <Navbar 
+            <Navbar
               isSearchBar={true}
               filterMovies={this.filterMovies}/>
             {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
             {this.state.error && <h1>{this.state.error}</h1>}
             {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
-                getMovieById={this.getMovieById} 
+                getMovieById={this.getMovieById}
               />}
             {(this.state.filteredMovies.length === 0) &&
               <Movies
@@ -76,28 +77,28 @@ class App extends Component {
               />}
             <footer><h6>@Tomates Podres</h6></footer>
           </section>
-          )}
+        )}
           />
           <Route exact path='/:id' render={({match}) => {
-            const movieId = parseInt(match.params.id)
+            const movieId = parseInt(match.params.id);
             return (
-           <section>            
-              <Navbar 
-                isSearchBar={false}          
+           <section>
+              <Navbar
+                isSearchBar={false}
                 filterMovies={this.filterMovies}
               />
-              <ChosenOne 
+              <ChosenOne
                 movieId={movieId}
               />
               <footer><h6>@Tomates Podres</h6></footer>
             </section>
-            );          
-          }}          
-          /> 
-      </Switch> 
+            );
+          }}
+          />
+      </Switch>
       </section>
-    );  
-  } 
+    );
+  }
 }
 
 export default App;
