@@ -25,10 +25,9 @@ class App extends Component {
     .then(data => { this.setState({
       movies: [...this.state.movies, ...data.movies]})})    
     .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
-    }
+  }
 
   displayErrorInfo = (response) => {
-    console.log(response)
     let errorCode = response.status;
     this.setState({errorStatusCode: errorCode})
   }
@@ -64,7 +63,7 @@ class App extends Component {
             <Navbar 
               isSearchBar={true}
               filterMovies={this.filterMovies}/>
-              {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
+            {(this.state.movies.length === 0 && !this.state.error)&&<h2>{text}</h2>}
             {this.state.error && <h1>{this.state.error}</h1>}
             {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
@@ -103,19 +102,3 @@ class App extends Component {
 
 export default App;
 
-
-//Router looks in the array of all the movies and then bring the obj that has the same id
-
-// {!this.state.movies && <h2>{text}</h2>}
-// {this.state.filteredMovies.length !== 0 && !this.state.selectedMovie &&
-// <Movies 
-//   movieData={this.state.filteredMovies}
-//   getMovieById={this.getMovieById}
-// />}
-// {this.state.selectedMovie && <ChosenOne details={this.state.selectedMovie} trailer={this.state.videos}/>}
-// {(!this.state.selectedMovie && this.state.filteredMovies.length === 0) &&
-// <Movies 
-//   movieData={this.state.movies}
-//   getMovieById={this.getMovieById}
-// />
-// }
