@@ -9,7 +9,7 @@ const RatingStar = (props) => {
 
     return (
         <div>
-            <h3>Rate this movie: {rating}</h3>
+            <h3>Rate this movie: {rating || 0} </h3>
             {[...Array(10)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
@@ -30,7 +30,7 @@ const RatingStar = (props) => {
                     </label>
                 );
             })}
-            <p>Avarage rating: <strong>{props.movieRating}</strong></p>
+            <h5>Avarage rating: <strong> {props.movieRating} </strong></h5>
         </div>
     );
 }
