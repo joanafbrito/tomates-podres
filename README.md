@@ -3,10 +3,10 @@
 ## Abstract
 
 ![image](https://user-images.githubusercontent.com/82066350/130875779-4adc0578-e45d-4cd8-8992-06ab68a98b59.png)
-*The Tomates Podres website shows a list of displayed moveis and allows a user to see information and watch a trailer form the movie selected:* 
+*The Tomates Podres website shows a list of displayed movies and allows a user to see additional movie information and watch a trailer form the movie selected:* 
 
 - Movies : when I visit the app, all movies should be displayed.
-- Selected Movie: As a user, I can click a movie, and see that movie’s details.When a movie’s details are displayed, none of the other movies will be visible.
+- Selected Movie: As a user, I can click a movie, and see that movie’s details. When a movie’s details are displayed, none of the other movies will be visible.
 - When a movie’s details are displayed, the user should have a way to return to the main view of all movies.
 
 ## A Little bit about the Developer
@@ -17,12 +17,10 @@
 
 *Hello! I’m Meg, currently a student of the frontend developer program at the Turing School of Software Development and Design. Prior to making the decision to change careers, I worked with a company that manages the data for 911. This positive contribution to society is very important to me and what I would like to continue to do in the future as a developer with the incredible power granted by the internet to create positive changes . Outside of learning to code, I enjoy spending time with my family and friends and continue my effort to read as many books as I possibly can.*
 
-*About MEG 🧘🏼‍♀️ *
-
 ## Learning Goals
 
 - Gain competency with React fundamentals
-- Learn how to test React components & asynchronous JS
+- Learn how to test React components & asynchronous JS using Cypress
 - Practice refactoring
 - Create a multi-page UX using Router
 
@@ -44,17 +42,15 @@
 
 Fork this repo (look up in the top right corner) and copy the SSH link.
 Open your terminal, run git clone (replace the [ ] with the copied remote address)
-Change into the directory and type the following to view page: 
-
-In the terminal run:
+Change into the directory and run
+```bash
+npm i
+```
+To view, run:
 
 ```bash
 npm start
 ```
-
-and then:
-
-src/open index.html
 
 or click the link:[Add deployed link here]
 
@@ -64,16 +60,28 @@ Add gif/screenshots here
 
 ## 🏆 Wins
 
-- Waiting for what it will happen... you never know... maybe ..." and the oscar's Goes to " ....
+- A big win was to be able to create the React components and have them communicate as we wanted them to.
+- Learning the behavior of JSX and how to apply CSS to those elements. 
+- Adding the stars for a user to rate a movie and be able to give those stars beautiful styling and functionality. 
+- Including a search bar for movie titles for better user experience. 
+- Being able to render the movie trailer successfully for the selected.
+- Being able to successfully apply the Cypress testing.
+- Having a Lighthouse score over 90, even as we were still getting used to using JSX.
 
 ## Challenges
 
 - Balancing fun/life with project/work/study time 👩🏻‍💻💅🏻💆🏻‍♀️
 - First project in React.
+- Managing the media queries for responsive design.
+- The battle of fatigue and productivity.
+- Navigating the challenge of JSX styling.
+- First project applying the Cypress testing suite.
 
 ## Future Designs/Extensions
 
-- Add a user login/logout whith username and password 
-- Have a area of favorite movies
-- Be able to watch the movie in the website
-- The User will be able to add rating to the watched movie 
+- Add a user login/logout with username and password .
+- Have an area of favorited movies.
+- Be able to watch the movie in the website.
+- The User's star rating will be saved within the user's account. 
+- Add an animation to the loading element.
+- Add arrows or other design to improve the UX with the movie scoll on homepage.
