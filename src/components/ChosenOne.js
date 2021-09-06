@@ -6,41 +6,41 @@ import { getSingleMovie, getMovieVideo } from '../apiCalls';
 
 class ChosenOne extends Component {
   constructor(props) {
-    super(props)
-    this.state={
+    super(props);
+    this.state = {
       selectedMovie: null,
       videos: [],
       error: null,
       errorStatusCode: null
-    }
+    };
   }
-  
+
 componentDidMount = () => {
   getSingleMovie(this.props.movieId)
-  .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
-  .then(data => this.setState({selectedMovie: data.movie}))
-  .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
+    .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
+    .then(data => this.setState({selectedMovie: data.movie}))
+    .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}));
 
   getMovieVideo(this.props.movieId)
-  .then(res => res.ok ? res.json() : this.displayErrorInfo(res)) 
-  .then(data => this.filterVideoByType(data.videos))
-  .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}))
+    .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
+    .then(data => this.filterVideoByType(data.videos))
+    .catch(err => this.setState({error: <ErrorInformation errorCode={this.state.errorStatusCode}/>}));
 }
 
 displayErrorInfo = (response) => {
-  let errorCode = response.status;
-  this.setState({errorStatusCode: errorCode})
+  const errorCode = response.status;
+  this.setState({ errorStatusCode: errorCode });
 }
 
 filterVideoByType = (dataVideos) => {
-  let trailerVideo = dataVideos.filter(video => video.type ===  "Trailer")
+  const trailerVideo = dataVideos.filter(video => video.type === 'Trailer');
   this.setState({
-    videos:[...this.state.videos, ...trailerVideo]
-  })  
- }
+    videos: [...this.state.videos, ...trailerVideo]
+  });
+}
 
 render() {
-return (
+  return (
   <div className='chosen-one'>
     {this.state.error && <h1>{this.state.error}</h1>}
     {(!this.state.selectedMovie && this.state.videos.length === 0 && !this.state.error)  && <h2>Loading...</h2>}
@@ -59,10 +59,10 @@ return (
         />
       </section>
       <h3>See Details</h3>
-      <section 
-      className="chosenOne-details" 
+      <section
+      className="chosenOne-details"
       style={{backgroundImage:`url(${this.state.selectedMovie.backdrop_path})`}}
-      > 
+      >
         <div className="details">
           <div className="info">
             <h2><strong>{this.state.selectedMovie.title}</strong></h2>
@@ -89,11 +89,10 @@ return (
             </section>
           </div>
         </div>
-      </section> 
+      </section>
     </section>}
-  </div>)}
+  </div>);
+}
 }
 
 export default ChosenOne;
-  
-
