@@ -26,7 +26,7 @@ const Navbar = ({isSearchBar, filterMovies}) => {
         <h1>Tomates Podres</h1>
       </div>
       <div className='time-greetings'>
-        <h5>Good {timeOfDay}, Movie Connoisseur!</h5>
+        <h2>Good {timeOfDay}, Movie Connoisseur!</h2>
         {isSearchBar && 
         <SearchBar filterMovies={filterMovies}/>}
         {!isSearchBar && <Link to='/' className='back'>Go Back</Link>}
