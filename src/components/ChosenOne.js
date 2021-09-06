@@ -81,7 +81,7 @@ return (
                 <p>{this.state.selectedMovie.runtime}</p>
                 <p>{this.state.selectedMovie.budget}</p>
                 <p>{this.state.selectedMovie.genres}</p>
-                <h5> {this.state.selectedMovie.release_date}</h5>
+                <h5>{this.state.selectedMovie.release_date}</h5>
                 <h5>{this.state.selectedMovie.revenue} </h5>
               </section>
             </div>
