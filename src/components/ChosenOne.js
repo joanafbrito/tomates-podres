@@ -67,22 +67,22 @@ return (
         <div className="details">
           <div className="info">
             <h2><strong>{this.state.selectedMovie.title}</strong></h2>
-            <h3> "{this.state.selectedMovie.tagline}"</h3>
+            {this.state.selectedMovie.tagline && <h3> "{this.state.selectedMovie.tagline}"</h3>}
             <p>{this.state.selectedMovie.overview} </p>
             <div className="info-container">
               <section className='what-info'>
                 <p>Runtime</p>
-                <p>Budget:</p>
                 <p>Genres:</p>
                 <h5>Realeased on: </h5>
+                <h5>Budget:</h5>
                 <h5>Revenue:</h5>
               </section>
               <section className='info-from-data'>
-                <p>{this.state.selectedMovie.runtime}</p>
-                <p>{this.state.selectedMovie.budget}</p>
-                <p>{this.state.selectedMovie.genres}</p>
+                <p>{this.state.selectedMovie.runtime} min</p>
+                <p>{(this.state.selectedMovie.genres).join(',  ')}</p>
                 <h5>{this.state.selectedMovie.release_date}</h5>
-                <h5>{this.state.selectedMovie.revenue} </h5>
+                <h5>{this.state.selectedMovie.budget.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h5>
+                <h5>{this.state.selectedMovie.revenue.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} </h5>
               </section>
             </div>
             <section className="rating-star">
