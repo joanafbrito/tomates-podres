@@ -68,13 +68,6 @@ iframe {
   padding: 1px;
 }
 
-/* ************** iphone x and Ipad-Pro and  size  ****************/
-@media only screen and (min-width: 600px) {
-  
-
-}
-
-
 /* ********** computer sizes  ************ */
 @media only screen and (min-width: 1260px) {
 
