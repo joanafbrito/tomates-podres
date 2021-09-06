@@ -59,7 +59,7 @@ class App extends Component {
     return (
       <section>
       <Switch>
-        <Route exact path='/' render={() => (
+        <Route exact path='/tomates-podres/' render={() => (
           <section className='home-page'>
             <Navbar
               isSearchBar={true}
@@ -79,7 +79,7 @@ class App extends Component {
           </section>
         )}
           />
-          <Route exact path='/:id' render={({match}) => {
+          <Route exact path='/tomates-podres/:id' render={({match}) => {
             const movieId = parseInt(match.params.id);
             return (
            <section>
