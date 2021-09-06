@@ -17,7 +17,7 @@ motivation and context.
 - [ ] local host 3000
 - [ ] console.log()
 - [ ] dev tools
-- [ ] npm test
+- [ ] cypress testing
 
 
 # Checklist:
