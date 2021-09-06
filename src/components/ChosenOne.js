@@ -29,7 +29,6 @@ componentDidMount = () => {
 
 displayErrorInfo = (response) => {
   let errorCode = response.status;
-  console.log(errorCode)
   this.setState({errorStatusCode: errorCode})
 }
 
@@ -94,8 +93,6 @@ return (
     </section>}
   </div>)}
 }
-
-
 
 export default ChosenOne;
   
