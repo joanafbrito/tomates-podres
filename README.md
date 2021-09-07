@@ -11,11 +11,11 @@
 
 ## A Little bit about the Developer
 
-*Hi! My name is Joana and I am a current Front End Engineering student at Turing School of Software Design. I am a career changer! I've  spent the last decade working to manage two small business, and grabbing the opportunity to move to another country.* 
+*Hi! My name is [Joana](https://github.com/joanafbrito) and I am a current Front End Engineering student at Turing School of Software Design. I am a career changer! I've  spent the last decade working to manage two small business, and grabbing the opportunity to move to another country.* 
 *Now, I'm spending my days learning code. As a woman I can contribuit to build a more balanced society, where people can be seen as equals in the software marketing and where I can build apps more inclusive and make a difference using this huge platform of the internet!*
 
 
-*Hello! I’m Meg, currently a student of the frontend developer program at the Turing School of Software Development and Design. Prior to making the decision to change careers, I worked with a company that manages the data for 911. This positive contribution to society is very important to me and what I would like to continue to do in the future as a developer with the incredible power granted by the internet to create positive changes . Outside of learning to code, I enjoy spending time with my family and friends and continue my effort to read as many books as I possibly can.*
+*Hello! I’m [Meg](https://github.com/Meggs625), currently a student of the frontend developer program at the Turing School of Software Development and Design. Prior to making the decision to change careers, I worked with a company that manages the data for 911. This positive contribution to society is very important to me and what I would like to continue to do in the future as a developer with the incredible power granted by the internet to create positive changes . Outside of learning to code, I enjoy spending time with my family and friends and continue my effort to read as many books as I possibly can.*
 
 ## Learning Goals
 
@@ -24,7 +24,8 @@
 - Practice refactoring
 - Create a multi-page UX using Router
 
-*Project Spec: [link](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html "Spec")*
+- *Project Spec: [link](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html "Spec")*
+- *Miro Wireframing: [link](https://miro.com/app/board/o9J_l0yr3rY=/?userEmail=megan.mcbride@colorado.edu&track=true&utm_source=notification&utm_medium=email&utm_campaign=add-to-team-and-board&utm_content=go-to-board)*
 
 ## Technologies Used
 
