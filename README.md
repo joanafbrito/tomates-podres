@@ -56,7 +56,15 @@ or click the link:[Add deployed link here]
 
 ## Illustrations
 
-Add gif/screenshots here
+- User can select a movie, find more details and provide their "star-rating" for the movie.
+![recording (8)](https://user-images.githubusercontent.com/78767067/132276073-ef259ffd-7aff-4c3a-973f-fee6fa413f98.gif)
+
+
+- User can search for a particular movie in the search bar.
+![recording (9)](https://user-images.githubusercontent.com/78767067/132276220-dec8f13a-de57-4264-8ef7-0ff89e01816d.gif)
+
+- Fully responsive user experience.
+![recording (11)](https://user-images.githubusercontent.com/78767067/132276515-5c6724d8-0a93-4873-b654-b5f644b24b07.gif)
 
 ## 🏆 Wins
 
