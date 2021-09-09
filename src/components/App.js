@@ -52,9 +52,15 @@ class App extends Component {
       filteredMovies: [...matchingMovieTitles]
     });
   }
+  
+  clearSearchInput = () => {
+    this.setState({
+      filteredMovies: []
+    });
+  }
 
   render() {
-    const text = 'Loading Movies....';
+    const text = '⏳ Loading Movies....';
 
     return (
       <section>
@@ -69,11 +75,13 @@ class App extends Component {
             {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById}
+                clearSearchInput={this.clearSearchInput}
               />}
             {(this.state.filteredMovies.length === 0) &&
               <Movies
                 movieData={this.state.movies}
                 getMovieById={this.getMovieById}
+                clearSearchInput={this.clearSearchInput}
               />}
             <footer><h6>@Tomates Podres</h6></footer>
           </section>
