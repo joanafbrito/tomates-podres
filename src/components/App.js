@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   resetFilter = () => {
-    this.setState({ filteredMovies: [...this.state.movies]})
+    this.setState({ filteredMovies: []})
   }
 
   render() {

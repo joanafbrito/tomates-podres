@@ -20,10 +20,10 @@ const Navbar = ({ isSearchBar, filterMovies }) => {
 
   return (
     <div className='navbar'>
-      <div className='logo-name'>
+      <Link to='/' className='logo-name'>
         <img className='logo'src={logo} alt='Logo-Tomato' />
         <h1>Tomates Podres</h1>
-      </div>
+      </Link>
       <div className='time-greetings'>
         <h2>Good {timeOfDay}, Movie Connoisseur!</h2>
         {isSearchBar &&

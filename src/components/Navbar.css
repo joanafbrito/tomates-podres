@@ -19,7 +19,11 @@
   padding: 5px;
   font-weight: 200;
   font-style: italic;
-}
+ }
+
+ .logo-name a {
+  text-decoration: none;
+ }
 
 .logo {
   width: 60px;
