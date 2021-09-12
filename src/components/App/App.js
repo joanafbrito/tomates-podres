@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Movies from './Movies';
-import ChosenOne from './ChosenOne';
-import Navbar from './Navbar';
-import ErrorInformation from './ErrorInformation';
-import { getAllMovies } from '../apiCalls';
+import Movies from '../Movies/Movies'
+import ChosenOne from '../ChosenOne/ChosenOne';
+import Navbar from '../Navbar/Navbar';
+import ErrorInformation from '../ErrorInformation/ErrorInformation';
+import { getAllMovies } from '../../apiCalls'
 import './App.css';
 
 class App extends Component {

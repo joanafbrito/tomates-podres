@@ -74,7 +74,7 @@ iframe {
   .details {
     height: 100%;
     background-color: black;
-    opacity: 70%;
+    opacity: .75;
   }
 
   .details .info { 
