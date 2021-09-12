@@ -5,6 +5,7 @@ import './Navbar.css';
 class SearchBar extends Component {
 
 handleClick = (event) => {
+  event.preventDefault();
   this.props.filterMovies(event.target.value)  
 }
 
