@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './MovieCard.css';
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({ poster, id, title }) => {
+const MovieCard = ({ poster, id, title, resetFilter }) => {
     return (
-       <Link to={`/tomates-podres/${id}`}>
-        <img src={poster} className="poster" alt={`Movie Poster for ${title}`}/>
+       <Link to={`/${id}`}>
+        <img onClick={() => {resetFilter()}} src={poster} className="poster" alt={`Movie Poster for ${title}`}/>
        </Link>
     )
 }

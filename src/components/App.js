@@ -53,13 +53,17 @@ class App extends Component {
     });
   }
 
+  resetFilter = () => {
+    this.setState({ filteredMovies: []})
+  }
+
   render() {
     const text = 'Loading Movies....';
 
     return (
       <section>
       <Switch>
-        <Route exact path='/tomates-podres/' render={() => (
+        <Route exact path='/' render={() => (
           <section className='home-page'>
             <Navbar
               isSearchBar={true}
@@ -69,17 +73,19 @@ class App extends Component {
             {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById}
+                resetFilter={this.resetFilter}
               />}
             {(this.state.filteredMovies.length === 0) &&
               <Movies
                 movieData={this.state.movies}
                 getMovieById={this.getMovieById}
+                resetFilter={this.resetFilter}
               />}
             <footer><h6>@Tomates Podres</h6></footer>
           </section>
         )}
           />
-          <Route exact path='/tomates-podres/:id' render={({match}) => {
+          <Route exact path='/:id' render={({match}) => {
             const movieId = parseInt(match.params.id);
             return (
            <section>
