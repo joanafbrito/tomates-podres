@@ -3,7 +3,7 @@ import React from 'react';
 import MovieCard from './MovieCard'
 import './Movies.css';
 
-const Movies = ({ movieData, getMovieById }) => {
+const Movies = ({ movieData, getMovieById, resetFilter }) => {
   const movieCards = movieData.map(movie => {
     return (
       <MovieCard
@@ -12,6 +12,7 @@ const Movies = ({ movieData, getMovieById }) => {
             poster={movie.poster_path}
             title={movie.title}
             getMovieById={getMovieById}
+            resetFilter={resetFilter}
             />
     )
   });

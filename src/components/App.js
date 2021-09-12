@@ -53,6 +53,10 @@ class App extends Component {
     });
   }
 
+  resetFilter = () => {
+    this.setState({ filteredMovies: [...this.state.movies]})
+  }
+
   render() {
     const text = 'Loading Movies....';
 
@@ -69,11 +73,13 @@ class App extends Component {
             {this.state.filteredMovies.length !== 0 &&
               <Movies movieData={this.state.filteredMovies}
                 getMovieById={this.getMovieById}
+                resetFilter={this.resetFilter}
               />}
             {(this.state.filteredMovies.length === 0) &&
               <Movies
                 movieData={this.state.movies}
                 getMovieById={this.getMovieById}
+                resetFilter={this.resetFilter}
               />}
             <footer><h6>@Tomates Podres</h6></footer>
           </section>
