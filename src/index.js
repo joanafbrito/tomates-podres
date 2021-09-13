@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
-import { BrowserRouter } from 'react-router-dom';
+import App from './components/App/App'
+import { HashRouter } from 'react-router-dom';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <App />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 
-//React.StrictMode was previously around App
 

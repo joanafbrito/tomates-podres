@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ChosenOne.css';
-import RatingStar from './RatingStar';
-import ErrorInformation from './ErrorInformation';
-import { getSingleMovie, getMovieVideo } from '../apiCalls';
+import RatingStar from '../RatingStar/RatingStar';
+import ErrorInformation from '../ErrorInformation/ErrorInformation';
+import { getSingleMovie, getMovieVideo } from '../../apiCalls';
 
 class ChosenOne extends Component {
   constructor(props) {
