@@ -16,6 +16,7 @@ class ChosenOne extends Component {
   }
 
 componentDidMount = () => {
+  // clear the filter 
   getSingleMovie(this.props.movieId)
     .then(res => res.ok ? res.json() : this.displayErrorInfo(res))
     .then(data => this.setState({selectedMovie: data.movie}))
